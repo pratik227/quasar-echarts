@@ -46,6 +46,14 @@
         <radar-chart></radar-chart>
       </div>
 
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <horizontal-bar-chart></horizontal-bar-chart>
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <line-chart></line-chart>
+      </div>
+
     </div>
   </q-page>
 </template>
@@ -60,10 +68,14 @@ import ScatterChart from "../components/ScatterChart";
 import BoxPlot from "../components/BoxPlot";
 import DoughnutChart from "../components/DoughnutChart";
 import RadarChart from "../components/RadarChart";
+import HorizontalBarChart from "../components/HorizontalBarChart";
+import LineChart from "../components/LineChart";
 
 export default {
   name: 'PageIndex',
     components: {
+        LineChart,
+        HorizontalBarChart,
         RadarChart,
         DoughnutChart,
         BoxPlot,
