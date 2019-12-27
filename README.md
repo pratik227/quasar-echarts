@@ -4,6 +4,8 @@ Dashboard using Quasar and ECharts
 
 ## Demo
 
+https://quasar-echarts.surge.sh/
+
 ![Alt text](src/assets/QuasarEcharts.png?raw=true "Screenshot")
 
 ## Install the dependencies
