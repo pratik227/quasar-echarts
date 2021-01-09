@@ -37,3 +37,12 @@ Be sure to check out my sponsor page.
 
 Thank you so much!!!
 
+
+# Old Code
+
+The Old code of Echarts is in master branch.
+
+Github - https://github.com/pratik227/quasar-echarts/tree/master
+
+Demo - https://quasar-echarts.surge.sh/
+
