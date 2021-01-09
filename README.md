@@ -1,12 +1,12 @@
 # Quasar ECharts (quasar-echarts)
 
-Dashboard using Quasar and ECharts
+Dashboard using Quasar and ECharts V5
 
 ## Demo
 
-https://quasar-echarts.surge.sh/
+https://quasar-echarts-v5.netlify.app/
 
-![Alt text](src/assets/QuasarEcharts.png?raw=true "Screenshot")
+![Alt text](public/QuasarEchartV5.png?raw=true "Screenshot")
 
 ## Install the dependencies
 ```bash
@@ -33,7 +33,7 @@ If this helped you in any way, you can contribute to the package's long term sur
 
 Be sure to check out my sponsor page.
 
-(GitHub currently **doubles your support**! So if you support me with $10/mo, I will $20 instead! They're alchemists 🦾😉)
+(GitHub currently **doubles your support**! So if you support me with $10/mo, I will $20 instead! They're alchemists 😉)
 
 Thank you so much!!!
 
