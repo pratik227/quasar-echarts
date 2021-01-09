@@ -99,7 +99,7 @@ const linksData = [
   {
     title: 'Old Quasar Echarts Github',
     icon: 'fab fa-github',
-    link: 'https://github.com/pratik227/quasar-echarts'
+    link: 'https://github.com/pratik227/quasar-echarts/tree/master'
   }
 ];
 
