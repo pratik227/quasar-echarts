@@ -30,17 +30,18 @@
 </template>
 
 <script>
-import LineChart from "components/LineChart";
-import BarChart from "components/BarChart";
-import PieChart from "components/PieChart";
-import ScatterChart from "components/ScatterChart";
-import DottedBarChart from "components/DottedBarChart";
-import GuageChart from "components/GuageChart";
-import Boxplot from "components/BoxChart";
-import AreaChart from "components/AreaChart";
+import {defineComponent} from 'vue'
+import LineChart from "components/LineChart.vue";
+import BarChart from "components/BarChart.vue";
+import PieChart from "components/PieChart.vue";
+import ScatterChart from "components/ScatterChart.vue";
+import DottedBarChart from "components/DottedBarChart.vue";
+import GuageChart from "components/GuageChart.vue";
+import Boxplot from "components/BoxChart.vue";
+import AreaChart from "components/AreaChart.vue";
 
-export default {
-  name: 'PageIndex',
+export default defineComponent({
+  name: 'IndexPage',
   components: {AreaChart, Boxplot, GuageChart, DottedBarChart, ScatterChart, PieChart, BarChart, LineChart}
-}
+})
 </script>
