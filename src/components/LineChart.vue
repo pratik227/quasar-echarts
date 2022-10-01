@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card>
+    <q-card :class="$q.dark.isActive?'bg-dark':''">
       <q-card-section class="text-h6">
         Line Chart
       </q-card-section>
@@ -19,6 +19,7 @@
 <script>
 import ECharts from 'vue-echarts'
 import * as echarts from 'echarts'
+import {useQuasar} from "quasar";
 
 export default {
   name: "LineChart",
@@ -26,7 +27,10 @@ export default {
     ECharts
   },
   data() {
+        const $q = useQuasar()
+
     return {
+          $q,
       model: false,
       options: {
         color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],

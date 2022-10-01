@@ -19,14 +19,14 @@
 <script>
 import ECharts from "vue-echarts";
 import {useQuasar} from 'quasar'
+import {defineComponent} from "vue";
 
-export default {
+export default defineComponent({
   name: "AreaChart",
   components: {
     ECharts
   },
   data() {
-    const $q = useQuasar()
     return {
       options: {
         tooltip: {
@@ -118,10 +118,15 @@ export default {
           }
         ]
       },
+    }
+  },
+  setup() {
+    const $q = useQuasar()
+    return {
       $q,
     }
   }
-}
+})
 </script>
 
 <style scoped>
