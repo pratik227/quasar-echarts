@@ -24,6 +24,7 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
+      :class="$q.dark.isActive?'bg-dark text-white':''"
     >
       <q-list>
         <q-item-label
@@ -47,6 +48,7 @@
 
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
+import {useQuasar} from "quasar";
 
 const linksData = [
   {
@@ -107,7 +109,10 @@ export default {
   name: 'MainLayout',
   components: {EssentialLink},
   data() {
+    const $q = useQuasar()
+
     return {
+      $q,
       leftDrawerOpen: false,
       essentialLinks: linksData
     }
