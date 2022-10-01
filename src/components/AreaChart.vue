@@ -5,19 +5,28 @@
         Stacked Area Chart
       </q-card-section>
       <q-card-section>
-        <div ref="areachart" id="areaChart" style="height: 250px;"></div>
+        <ECharts ref="areachart"
+          :option="options"
+          class="q-mt-md"
+          :resizable="true"
+          autoresize style="height: 250px;"
+        />
       </q-card-section>
-      <q-resize-observer @resize="onResize"/>
     </q-card>
   </div>
 </template>
 
 <script>
+import ECharts from "vue-echarts";
+import * as echarts from 'echarts'
+
 export default {
   name: "AreaChart",
+  components: {
+    ECharts
+  },
   data() {
     return {
-      model: false,
       options: {
         tooltip: {
           trigger: 'axis',
@@ -107,29 +116,6 @@ export default {
             data: [820, 932, 901, 934, 1290, 1330, 1320]
           }
         ]
-      },
-      area_chart: null
-    }
-  },
-  mounted() {
-    this.init();
-  },
-  watch: {
-    '$q.dark.isActive': function () {
-      this.init();
-    }
-  },
-  methods: {
-    init() {
-      let areaChart = document.getElementById('areaChart');
-      echarts.dispose(areaChart);
-      let theme = this.model ? 'dark' : 'light';
-      this.area_chart = echarts.init(areaChart, theme);
-      this.area_chart.setOption(this.options)
-    },
-    onResize() {
-      if (this.area_chart) {
-        this.area_chart.resize();
       }
     }
   }

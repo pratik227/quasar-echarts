@@ -5,19 +5,28 @@
         Boxplot Chart
       </q-card-section>
       <q-card-section>
-        <div ref="boxplotchart" id="boxplotChart" style="height: 250px;"></div>
+        <ECharts ref="boxplotchart"
+          :option="options"
+          class="q-mt-md"
+          :resizable="true"
+          autoresize style="height: 250px;"
+        />
       </q-card-section>
-      <q-resize-observer @resize="onResize"/>
     </q-card>
   </div>
 </template>
 
 <script>
+import ECharts from "vue-echarts";
+import * as echarts from 'echarts'
+
 export default {
   name: "Boxplot",
+  components: {
+    ECharts
+  },
   data() {
     return {
-      model: false,
       options: {
         title: [
           {
@@ -92,29 +101,6 @@ export default {
             datasetIndex: 2
           }
         ]
-      },
-      boxplot_chart: null
-    }
-  },
-  mounted() {
-    this.init();
-  },
-  watch: {
-    '$q.dark.isActive': function () {
-      this.init();
-    }
-  },
-  methods: {
-    init() {
-      let boxplotChart = document.getElementById('boxplotChart');
-      echarts.dispose(boxplotChart);
-      let theme = this.model ? 'dark' : 'light';
-      this.boxplot_chart = echarts.init(boxplotChart, theme);
-      this.boxplot_chart.setOption(this.options)
-    },
-    onResize() {
-      if (this.boxplot_chart) {
-        this.boxplot_chart.resize();
       }
     }
   }

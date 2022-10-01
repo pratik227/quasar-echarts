@@ -9,19 +9,28 @@
         </q-btn>
       </q-card-section>
       <q-card-section>
-        <div ref="guagechart" id="guageChart" style="height: 250px;"></div>
+        <ECharts ref="guagechart"
+          :option="options"
+          class="q-mt-md"
+          :resizable="true"
+          autoresize style="height: 250px;"
+        />
       </q-card-section>
-      <q-resize-observer @resize="onResize"/>
     </q-card>
   </div>
 </template>
 
 <script>
+import ECharts from "vue-echarts";
+import * as echarts from 'echarts'
+
 export default {
   name: "GuageChart",
+  components: {
+    ECharts
+  },
   data() {
     return {
-      model: false,
       options: {
         tooltip: {
           formatter: '{a} <br/>{b} : {c}%'
@@ -41,22 +50,12 @@ export default {
             name: 'SCORE'
           }]
         }]
-      },
-      guage_chart: null
-    }
-  },
-  mounted() {
-    this.init();
-  },
-  watch: {
-    '$q.dark.isActive': function () {
-      this.init();
+      }
     }
   },
   methods: {
-
     SaveImage() {
-      const linkSource = this.guage_chart.getDataURL();
+      const linkSource = this.$refs.guagechart.getDataURL();
       const downloadLink = document.createElement('a');
       document.body.appendChild(downloadLink);
 
@@ -65,18 +64,6 @@ export default {
       downloadLink.download = 'GuageChart.png';
       downloadLink.click();
     },
-    init() {
-      let guageChart = document.getElementById('guageChart');
-      echarts.dispose(guageChart);
-      let theme = this.model ? 'dark' : 'light';
-      this.guage_chart = echarts.init(guageChart, theme);
-      this.guage_chart.setOption(this.options)
-    },
-    onResize() {
-      if (this.guage_chart) {
-        this.guage_chart.resize();
-      }
-    }
   }
 }
 </script>

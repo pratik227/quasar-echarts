@@ -8,16 +8,26 @@
         </q-btn>
       </q-card-section>
       <q-card-section>
-        <div ref="barchart" id="barChart" style="height: 250px;"></div>
+        <ECharts ref="barchart"
+          :option="options"
+          class="q-mt-md"
+          :resizable="true"
+          autoresize style="height: 250px;"
+        />
       </q-card-section>
-      <q-resize-observer @resize="onResize"/>
     </q-card>
   </div>
 </template>
 
 <script>
+import ECharts from 'vue-echarts'
+import * as echarts from 'echarts'
+
 export default {
   name: "BarChart",
+  components: {
+    ECharts
+  },
   data() {
     return {
       model: false,
@@ -55,9 +65,6 @@ export default {
       bar_chart: null
     }
   },
-  mounted() {
-    this.init();
-  },
   watch: {
     '$q.dark.isActive': function () {
       this.init();
@@ -66,7 +73,7 @@ export default {
   methods: {
 
     SaveImage() {
-      const linkSource = this.bar_chart.getDataURL();
+      const linkSource = this.$refs.barchart.getDataURL();
       const downloadLink = document.createElement('a');
       document.body.appendChild(downloadLink);
 
@@ -74,18 +81,6 @@ export default {
       downloadLink.target = '_self';
       downloadLink.download = 'BarChart.png';
       downloadLink.click();
-    },
-    init() {
-      let barChart = document.getElementById('barChart');
-      echarts.dispose(barChart);
-      let theme = this.model ? 'dark' : 'light';
-      this.bar_chart = echarts.init(barChart, theme);
-      this.bar_chart.setOption(this.options)
-    },
-    onResize() {
-      if (this.bar_chart) {
-        this.bar_chart.resize();
-      }
     }
   }
 }
