@@ -21,7 +21,6 @@
 
 <script>
 import ECharts from 'vue-echarts'
-import * as echarts from 'echarts'
 
 export default {
   name: "BarChart",
