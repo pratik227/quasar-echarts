@@ -5,14 +5,20 @@
         Dotted Bar Chart
       </q-card-section>
       <q-card-section>
-        <div ref="dottedbarchart" id="dottedbarChart" style="height: 250px;"></div>
+        <ECharts ref="dottedbarchart"
+          :option="options"
+          class="q-mt-md"
+          :resizable="true"
+          autoresize style="height: 250px;"
+        />
       </q-card-section>
-      <q-resize-observer @resize="onResize"/>
     </q-card>
   </div>
 </template>
 
 <script>
+import ECharts from "vue-echarts";
+import * as echarts from 'echarts'
 
 // Generate data
 var category = [];
@@ -35,9 +41,11 @@ for (var i = 0; i < 20; i++) {
 
 export default {
   name: "DottedBarChart",
+  components: {
+    ECharts
+  },
   data() {
     return {
-      model: false,
       options: {
         tooltip: {
           trigger: 'axis',
@@ -123,31 +131,8 @@ export default {
           data: lineData
         }]
       },
-      dottedbar_chart: null
     }
   },
-  mounted() {
-    this.init();
-  },
-  watch: {
-    '$q.dark.isActive': function () {
-      this.init();
-    }
-  },
-  methods: {
-    init() {
-      let dottedbarChart = document.getElementById('dottedbarChart');
-      echarts.dispose(dottedbarChart);
-      let theme = this.model ? 'dark' : 'light';
-      this.dottedbar_chart = echarts.init(dottedbarChart, theme);
-      this.dottedbar_chart.setOption(this.options)
-    },
-    onResize() {
-      if (this.dottedbar_chart) {
-        this.dottedbar_chart.resize();
-      }
-    }
-  }
 }
 </script>
 
