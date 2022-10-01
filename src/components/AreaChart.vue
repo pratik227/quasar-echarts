@@ -1,15 +1,15 @@
 <template>
   <div>
-    <q-card>
+    <q-card :class="$q.dark.isActive?'bg-dark':''">
       <q-card-section class="text-h6">
         Stacked Area Chart
       </q-card-section>
       <q-card-section>
         <ECharts ref="areachart"
-          :option="options"
-          class="q-mt-md"
-          :resizable="true"
-          autoresize style="height: 250px;"
+                 :option="options"
+                 class="q-mt-md"
+                 :resizable="true"
+                 autoresize style="height: 250px;"
         />
       </q-card-section>
     </q-card>
@@ -18,6 +18,7 @@
 
 <script>
 import ECharts from "vue-echarts";
+import {useQuasar} from 'quasar'
 
 export default {
   name: "AreaChart",
@@ -25,6 +26,7 @@ export default {
     ECharts
   },
   data() {
+    const $q = useQuasar()
     return {
       options: {
         tooltip: {
@@ -44,7 +46,7 @@ export default {
           left: '3%',
           right: '4%',
           bottom: '15%',
-          top:'5%',
+          top: '5%',
           containLabel: true
         },
         xAxis: [
@@ -115,7 +117,8 @@ export default {
             data: [820, 932, 901, 934, 1290, 1330, 1320]
           }
         ]
-      }
+      },
+      $q,
     }
   }
 }

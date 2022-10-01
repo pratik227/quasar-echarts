@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card>
+    <q-card :class="$q.dark.isActive?'bg-dark':''">
       <q-card-section class="text-h6">
         Boxplot Chart
       </q-card-section>
@@ -18,6 +18,7 @@
 
 <script>
 import ECharts from "vue-echarts";
+import {useQuasar} from "quasar";
 
 export default {
   name: "Boxplot",
@@ -25,7 +26,9 @@ export default {
     ECharts
   },
   data() {
+    const $q = useQuasar()
     return {
+      $q,
       options: {
         title: [
           {
