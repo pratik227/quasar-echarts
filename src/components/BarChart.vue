@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card>
+    <q-card :class="$q.dark.isActive?'bg-dark':''">
       <q-card-section class="text-h6">
         Bar Chart
         <q-btn icon="fa fa-download" class="float-right" @click="SaveImage" flat dense>
@@ -21,6 +21,7 @@
 
 <script>
 import ECharts from 'vue-echarts'
+import {useQuasar} from "quasar";
 
 export default {
   name: "BarChart",
@@ -28,7 +29,9 @@ export default {
     ECharts
   },
   data() {
+    const $q = useQuasar()
     return {
+      $q,
       model: false,
       options: {
         legend: {

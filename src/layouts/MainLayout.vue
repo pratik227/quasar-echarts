@@ -14,7 +14,7 @@
         <q-toolbar-title>
           Quasar App + Echarts v5
         </q-toolbar-title>
-<!--        <q-btn flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"/>-->
+        <q-btn flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"/>
 
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
