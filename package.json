@@ -9,17 +9,17 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.16.6",
-    "echarts": "^5.4.3",
-    "quasar": "^2.12.7",
+    "@quasar/extras": "^1.16.12",
+    "echarts": "^5.5.1",
+    "quasar": "^2.17.0",
     "vue": "^3.0.0",
-    "vue-echarts": "^6.2.3",
-    "vue-router": "^4.0.0"
+    "vue-echarts": "^6.7.3",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@quasar/app-vite": "^1.0.0",
-    "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.14"
+    "@quasar/app-vite": "^1.10.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47"
   },
   "engines": {
     "node": "^18 || ^16 || ^14.19",
